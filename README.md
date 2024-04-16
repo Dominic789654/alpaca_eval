@@ -25,33 +25,21 @@ Updates:
 <details open>
   <summary><b>Table of Contents</b></summary>
 
-1. [Overview](#overview)
-2. [Quick Start](#quick-start)
-2. [Leaderboards and how to interpret them](#leaderboards-and-how-to-interpret-them)
-    - [Models](#models)
-    - [Evaluators](#evaluators)
-3. [Use-cases](#use-cases)
-    - [Evaluating a model](#evaluating-a-model)
-    - [Making a new leaderboard](#making-a-new-leaderboard)
-    - [Making a new evaluator](#making-a-new-evaluator)
-4. [Contributing](#contributing)
-    - [Contributing a model](#contributing-a-model)
-    - [Contributing an evaluator](#contributing-an-evaluator)
-    - [Contributing an eval set](#contributing-an-eval-set)
-    - [Contributing a completion function](#contributing-a-completion-function)
-5. [Limitations](#limitations)
-6. [Analysis](#additional-analysis-and-plots)
-    - [Analyzing an evaluator](#analyzing-an-evaluator)
-    - [Analyzing an eval set](#analyzing-an-eval-set)
-7. [Citation](#citation)
-8. [Additional information](#additional-information)
-   - [Length-controlled win rates](#length-controlled-win-rates)
-   - [AlpacaEval 2.0](#alpacaeval-20)
-   - [Data Release](#data-release)
-   - [Differences with AlpacaFarm](#differences-with-alpacafarm)
-   - [Related work](#related-work)
-   - [Interpreting annotations](#interpreting-annotations)
-   - [Major updates](#major-updates)
+- [ AlpacaEval : An Automatic Evaluator for Instruction-following Language Models](#-alpacaeval--an-automatic-evaluator-for-instruction-following-language-models)
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Leaderboards and how to interpret them](#leaderboards-and-how-to-interpret-them)
+  - [Models](#models)
+  - [Evaluators](#evaluators)
+- [Use-cases](#use-cases)
+  - [Evaluating a model](#evaluating-a-model)
+- [Contributing](#contributing)
+  - [Contributing a model](#contributing-a-model)
+- [Limitations](#limitations)
+- [Additional analysis and plots](#additional-analysis-and-plots)
+  - [Length-controlled AlpacaEval (LCAE)](#length-controlled-alpacaeval-lcae)
+- [Citation](#citation)
+- [More information](#more-information)
 
 </details>
 
@@ -1248,7 +1236,7 @@ Given such a logistic regression we can then try to predict the counterfactual "
 By averaging over this length-controlled preference, we then obtain the length-controlled win-rate.
 The exact form of the logistic regression is taken such that the interpretation of LC win rates is similar to the raw win rates, for example for any model `m1` and `m2` we have `win_rate(m1, m2) = 1 - win_rate(m2, m1) \in [0,100]` and `win_rate(m1, m1) = 0.5`. 
 Length controlled win-rates increase the correlation between AlpacaEval's leaderboard and Chat Arena from **0.93 to 0.98 Spearman correlation, while significantly decreasing the length gameability of the annotator**.
-For more information and results about length controlled win-rates see [this notebook](https://github.com/tatsu-lab/alpaca_eval/blob/main/notebooks/length_correction.ipynb).
+For more information and results about length controlled win-rates see [this notebook](https://github.com/tatsu-lab/alpaca_eval/blob/main/notebooks/length_controlled.ipynb).
 
 This idea of estimating the controlled direct effect, by predicting the outcome while conditioning on the mediator (the length difference), is common in statistical inference.
 
